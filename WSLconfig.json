@@ -48,7 +48,7 @@
         "hidden": false,
         "name": "Ubuntu",
         "source": "Windows.Terminal.Wsl",
-        "fontFace": "Caskaydia Cove",
+        "fontFace": "CaskaydiaCove NF",
         "useAcrylic": true,
         "acrylicOpacity": 0.3,
         "background": "#01030a"
