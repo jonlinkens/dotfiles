@@ -10,8 +10,7 @@ window:
 
 font:
   normal:
-    family: "SFMono Nerd Font"
-    style: Regular
+    family: "BMono Nerd Font"
   size: 14.0
   AppleFontSmoothing: 1
 
