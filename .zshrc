@@ -20,3 +20,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 source ~/.git.plugin.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+alias vim="nvim"
+alias gmj="gimoji && git commit"
