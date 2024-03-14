@@ -23,3 +23,4 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 alias vim="nvim"
 alias gmj="gimoji && git commit"
+alias tml="tmux split-window -h \; select-pane -L \; split-window -v"
