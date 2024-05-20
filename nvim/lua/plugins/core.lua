@@ -7,4 +7,15 @@ return {
   },
   { "wakatime/vim-wakatime", lazy = false },
   { "ThePrimeagen/vim-be-good" },
+  {
+    "folke/flash.nvim",
+    enabled = true,
+    opts = {
+      modes = {
+        search = {
+          enabled = true,
+        },
+      },
+    },
+  },
 }
