@@ -4,8 +4,8 @@ return {
   cmd = { "ConformInfo" },
   opts = {
     formatters_by_ft = {
-      javascript = { { "biome", "prettier" } },
-      typescript = { { "biome", "prettier" } },
+      javascript = { { "prettier" } },
+      typescript = { { "prettier" } },
     },
   },
 }
