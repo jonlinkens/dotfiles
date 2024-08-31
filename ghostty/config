@@ -48,3 +48,7 @@ keybind = super+left=text:\x02\x1b[D
 keybind = super+right=text:\x02\x1b[C
 keybind = super+up=text:\x02\x1b[A
 keybind = super+down=text:\x02\x1b[B
+
+
+# cmd+K to clear doesn't work in tmux by default
+keybind = super+k=text:\x0c
