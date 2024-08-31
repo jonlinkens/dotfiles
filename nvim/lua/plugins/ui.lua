@@ -1,11 +1,23 @@
 return {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = {
-    transparent_background = true,
-  } },
+  -- { "catppuccin/nvim", name = "catppuccin", priority = 1000, opts = {
+  --   transparent_background = true,
+  -- } },
+
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+    opts = {
+      styles = {
+        transparency = true,
+        italic = false,
+      },
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "rose-pine",
     },
   },
   {
@@ -28,5 +40,10 @@ return {
         },
       },
     },
+  },
+  {
+    "rktjmp/lush.nvim",
+    -- if you wish to use your own colorscheme:
+    -- { dir = '/absolute/path/to/colorscheme', lazy = true },
   },
 }

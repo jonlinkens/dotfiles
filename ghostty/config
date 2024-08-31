@@ -1,7 +1,7 @@
 font-family = BMono Nerd Font
 background-opacity = 0.85
 background-blur-radius = 70
-theme = catppuccin-mocha
+theme = rose-pine
 font-size = 14
 window-padding-x = 18
 window-padding-y = 16
