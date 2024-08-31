@@ -1,13 +1,12 @@
 local function getRandomObject(array)
-  math.randomseed(os.time())
   local randomIndex = math.random(1, #array)
-  print("Random index: ", randomIndex)
   return array[randomIndex]
 end
 
 local LOGOS = {
-  { filename = "thousand_sunny.txt", height = 33, width = 68, animate = false },
-  { filename = "champloo.txt", height = 18, width = 61, animate = true },
+  -- { filename = "champloo.txt", height = 18, width = 61, animate = true },
+  -- { filename = "thousand_sunny.txt", height = 33, width = 68, animate = false },
+  { filename = "ed.txt", height = 28, width = 73, animate = true },
 }
 
 local DIRPATH = "~/.config/nvim/lua/plugins/"
