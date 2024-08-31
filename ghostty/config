@@ -1,4 +1,5 @@
-font-family = BMono Nerd Font
+# this is Berkeley Mono which I patched with nerd fonts myself. I can't give it out unfortunately - sorry!
+font-family = BMono Nerd Font 
 background-opacity = 0.85
 background-blur-radius = 70
 theme = rose-pine
