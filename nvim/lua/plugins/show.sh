@@ -2,16 +2,25 @@
 
 file_path=$1
 
-frames=$(cat "$file_path" | awk -v RS= '{gsub(/\n/, "\\n"); print}')
+frames=$(awk -v RS= '{gsub(/\n/, "\\n"); print}' "$file_path")
 
-clear_terminal() {
-	printf "\033c"
+clear_screen() {
+	tput reset
 }
+
+move_cursor_home() {
+	tput cup 0 0
+}
+
+cols=$(tput cols)
+rows=$(tput lines)
+
+clear_screen
 
 while true; do
 	for frame in $frames; do
-		clear_terminal
-		echo "$frame"
+		move_cursor_home
+		printf "%b" "$frame"
 		sleep 0.05
 	done
 done
