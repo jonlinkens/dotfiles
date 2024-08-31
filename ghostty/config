@@ -1,0 +1,50 @@
+font-family = BMono Nerd Font
+background-opacity = 0.85
+background-blur-radius = 70
+theme = catppuccin-mocha
+font-size = 14
+window-padding-x = 18
+window-padding-y = 16
+font-thicken = true
+window-decoration = false
+
+
+# ======== tmux bindings because I'm lazy ========
+
+# switch windows by number
+keybind = super+one=text:\x021
+keybind = super+two=text:\x022
+keybind = super+three=text:\x023
+keybind = super+four=text:\x024
+keybind = super+five=text:\x025
+keybind = super+six=text:\x026
+keybind = super+seven=text:\x027
+keybind = super+eight=text:\x028
+keybind = super+nine=text:\x029
+
+# open new window 
+keybind = super+t=text:\x02c
+
+# close window
+keybind = super+w=text:\x02x
+
+# open session view
+keybind = super+o=text:\x02s
+
+# open last session
+keybind = super+l=text:\x02L
+
+# horizontal split
+keybind = super+n=text:\x02\"
+
+# vertical split
+keybind = super+shift+n=text:\x02%
+
+# fullscreen pane
+keybind = super+z=text:\x02z
+
+# switch panes with direction
+keybind = super+left=text:\x02\x1b[D
+keybind = super+right=text:\x02\x1b[C
+keybind = super+up=text:\x02\x1b[A
+keybind = super+down=text:\x02\x1b[B
