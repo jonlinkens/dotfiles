@@ -1,5 +1,6 @@
 return {
   {
+    enabled = false,
     "zbirenbaum/copilot.lua",
     opts = {
       panel = {
