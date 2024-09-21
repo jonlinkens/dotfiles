@@ -17,3 +17,19 @@
 --     })
 --   end,
 -- })
+--
+
+-- when opening nvim with a directory (i.e. "nvim .")
+-- open a blank buffer instead of netrw/etc.
+-- this way I can easily choose between telescope or a file explorer (yazi atm)
+-- probably not the best way to do this but who cares
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+      vim.cmd("cd " .. vim.fn.argv(0))
+      vim.cmd("bwipeout 1")
+      vim.cmd("enew")
+    end
+  end,
+})
