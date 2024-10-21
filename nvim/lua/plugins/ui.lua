@@ -46,4 +46,18 @@ return {
     -- if you wish to use your own colorscheme:
     -- { dir = '/absolute/path/to/colorscheme', lazy = true },
   },
+  {
+    "shortcuts/no-neck-pain.nvim",
+    keys = {
+      {
+        "<leader>uu",
+        "<cmd>NoNeckPain<cr>",
+        desc = "Centre buffer",
+      },
+    },
+    opts = {
+      width = 200,
+      noremap = true,
+    },
+  },
 }
