@@ -7,7 +7,7 @@ font-size = 14
 window-padding-x = 18
 window-padding-y = 16
 font-thicken = true
-window-decoration = false
+macos-titlebar-style = hidden
 
 
 # ======== tmux bindings because I'm lazy ========
