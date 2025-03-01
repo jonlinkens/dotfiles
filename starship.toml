@@ -1,0 +1,6 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[cmd_duration]
+min_time = 0
+format = "[$duration]($style) "
+style = "bold yellow"
