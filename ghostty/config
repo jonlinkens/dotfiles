@@ -1,13 +1,15 @@
 # this is Berkeley Mono which I patched with nerd fonts myself. I can't give it out unfortunately - sorry!
-font-family = BMono Nerd Font 
-background-opacity = 0.85
-background-blur-radius = 70
-theme = rose-pine
+font-family = BMono Nerd Font
+# background-opacity = 0.85
+# background-blur-radius = 70
+theme = kanagawa wave
 font-size = 14
 window-padding-x = 18
 window-padding-y = 16
 font-thicken = true
+#window-decoration = false
 macos-titlebar-style = hidden
+macos-icon = retro
 
 
 # ======== tmux bindings because I'm lazy ========
