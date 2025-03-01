@@ -2,12 +2,19 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+
       inlay_hints = { enabled = false },
       servers = {
         astro = {},
+        vtsls = {
+          settings = {
+            vtsls = { autoUseWorkspaceTsdk = true },
+          },
+        },
       },
     },
   },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
