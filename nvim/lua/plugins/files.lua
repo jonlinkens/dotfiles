@@ -34,4 +34,27 @@ return {
       },
     },
   },
+  {
+    "ibhagwan/fzf-lua",
+    opts = {
+      oldfiles = {
+        include_current_session = true,
+      },
+      previewers = {
+        builtin = {
+          syntax_limit_b = 1024 * 100, -- 100KB
+        },
+      },
+      grep = {
+        rg_glob = true, -- enable glob parsing
+        glob_flag = "--iglob", -- case insensitive globs
+      },
+    },
+    keys = {
+      { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (cwd)" },
+      { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (Root files)" },
+      { "<leader>sG", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
+      { "<leader>sg", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
+    },
+  },
 }
