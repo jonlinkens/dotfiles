@@ -14,6 +14,9 @@
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
+vim.keymap.set("v", "y", "myy`y", { desc = "Yank and restore cursor position" })
+vim.keymap.set("v", "Y", "myY`y", { desc = "Yank line and restore cursor position" })
+
 vim.api.nvim_set_keymap(
   "n",
   "<leader>cg",
