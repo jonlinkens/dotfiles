@@ -3,13 +3,19 @@ return {
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   opts = {
+    notify_on_error = true,
+    formatters = {
+      biome = { require_cwd = true },
+      ["biome-check"] = { require_cwd = true },
+      prettier = { require_cwd = true },
+    },
     formatters_by_ft = {
-      -- interchange biome with prettier or else it doesnt work...
-      -- Make sure its installed with mason and conform
-
-      javascript = { "prettier" },
-      typescript = { "prettier" },
-      markdown = { "prettier", "marksman" },
+      lua = { "stylua" },
+      ["javascript"] = { "biome-check", "prettier", stop_after_first = true },
+      ["javascriptreact"] = { "biome-check", "prettier", stop_after_first = true },
+      ["typescript"] = { "biome-check", "prettier", stop_after_first = true },
+      ["typescriptreact"] = { "biome-check", "prettier", stop_after_first = true },
+      ["json"] = { "biome-check", "prettier", stop_after_first = true },
     },
   },
 }
