@@ -37,6 +37,11 @@ return {
   {
     "ibhagwan/fzf-lua",
     opts = {
+      fzf_opts = {
+        ["--scheme"] = "path",
+        ["--tiebreak"] = "end",
+        ["--keep-right"] = "",
+      },
       oldfiles = {
         include_current_session = true,
       },
