@@ -2,6 +2,8 @@
 
 vim.opt.mouse = ""
 
+vim.lsp.set_log_level("off")
+
 vim.filetype.add({
   extension = {
     astro = "astro",
