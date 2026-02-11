@@ -35,7 +35,6 @@ return {
         "query",
         "markdown",
         "markdown_inline",
-        "vim",
       },
       auto_install = true,
       highlight = {
