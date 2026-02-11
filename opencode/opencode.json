@@ -8,5 +8,10 @@
     "scroll_acceleration": {
       "enabled": true
     }
-  }
+  },
+  "keybinds": {
+    "leader": "ctrl+a",
+    "messages_half_page_up": "ctrl+u",
+    "messages_half_page_down": "ctrl+d"
+  },
 }
