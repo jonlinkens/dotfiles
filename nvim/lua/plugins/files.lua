@@ -41,7 +41,9 @@ return {
   {
     "folke/snacks.nvim",
     keys = {
-      { "<leader>ff", false },
+      { "<leader><space>", false },
+      { "<leader>sg", false },
+      { "<leader>sz", false },
     },
     opts = function(_, opts)
       opts = opts or {}
@@ -65,13 +67,13 @@ return {
   {
     "ibhagwan/fzf-lua",
     keys = {
-      { "<leader>ff", false },
+      { "<leader>space", false },
     },
   },
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      { "<leader>ff", false },
+      { "<leader>space", false },
     },
   },
   {
@@ -124,14 +126,14 @@ return {
     lazy = false,
     keys = {
       {
-        "<leader>ff",
+        "<leader><space>",
         function()
           require("fff-snacks").find_files(find_files_opts)
         end,
         desc = "FFF find files",
       },
       {
-        "<leader>fw",
+        "<leader>sg",
         function()
           require("fff-snacks").live_grep(live_grep_opts)
         end,
@@ -139,14 +141,14 @@ return {
       },
       {
         mode = "v",
-        "<leader>fw",
+        "<leader>sg",
         function()
           require("fff-snacks").grep_word(live_grep_opts)
         end,
         desc = "FFF grep word",
       },
       {
-        "<leader>fz",
+        "<leader>sz",
         function()
           require("fff-snacks").live_grep(fuzzy_grep_opts)
         end,
