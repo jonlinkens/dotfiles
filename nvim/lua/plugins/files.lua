@@ -1,4 +1,11 @@
 local find_files_opts = {
+  title = "Files",
+  supports_live = true,
+  icons = {
+    ui = {
+      live = "",
+    },
+  },
   win = {
     input = {
       keys = {
@@ -17,6 +24,18 @@ local find_files_opts = {
 }
 
 local live_grep_opts = {
+  title = "Grep",
+  supports_live = true,
+  icons = {
+    ui = {
+      live = "",
+    },
+  },
+  toggles = {
+    _is_grep_mode_plain = false,
+    _is_grep_mode_regex = false,
+    _is_grep_mode_fuzzy = false,
+  },
   win = {
     input = {
       keys = {
@@ -35,7 +54,14 @@ local live_grep_opts = {
 }
 
 local fuzzy_grep_opts = vim.deepcopy(live_grep_opts)
+fuzzy_grep_opts.title = "Fuzzy Grep"
 fuzzy_grep_opts.grep_mode = { "fuzzy", "plain", "regex" }
+
+local function picker_opts(opts, search)
+  local copy = vim.deepcopy(opts)
+  copy.search = search
+  return copy
+end
 
 return {
   {
@@ -53,14 +79,12 @@ return {
 
       opts.picker.actions.go_to_live_grep = function(picker)
         picker:close()
-        live_grep_opts.search = picker.input.filter.search
-        require("fff-snacks").live_grep(live_grep_opts)
+        require("fff-snacks").live_grep(picker_opts(live_grep_opts, picker.input.filter.search))
       end
 
       opts.picker.actions.go_to_find_files = function(picker)
         picker:close()
-        find_files_opts.search = picker.input.filter.search
-        require("fff-snacks").find_files(find_files_opts)
+        require("fff-snacks").find_files(picker_opts(find_files_opts, picker.input.filter.search))
       end
     end,
   },
@@ -132,14 +156,14 @@ return {
       {
         "<leader><space>",
         function()
-          require("fff-snacks").find_files(find_files_opts)
+          require("fff-snacks").find_files(picker_opts(find_files_opts))
         end,
         desc = "FFF find files",
       },
       {
         "<leader>sg",
         function()
-          require("fff-snacks").live_grep(live_grep_opts)
+          require("fff-snacks").live_grep(picker_opts(live_grep_opts))
         end,
         desc = "FFF live grep",
       },
@@ -147,14 +171,14 @@ return {
         mode = "v",
         "<leader>sg",
         function()
-          require("fff-snacks").grep_word(live_grep_opts)
+          require("fff-snacks").grep_word(picker_opts(live_grep_opts))
         end,
         desc = "FFF grep word",
       },
       {
         "<leader>sz",
         function()
-          require("fff-snacks").live_grep(fuzzy_grep_opts)
+          require("fff-snacks").live_grep(picker_opts(fuzzy_grep_opts))
         end,
         desc = "FFF live grep (fuzzy)",
       },
