@@ -23,6 +23,18 @@ return {
   end,
 
   config = function()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "OpencodeEvent:*", -- Optionally filter event types
+      callback = function(args)
+        ---@type opencode.cli.client.Event
+        local event = args.data.event
+
+        if event.type == "session.idle" then
+          vim.notify("`opencode` finished responding")
+        end
+      end,
+    })
+
     local function get_function_name()
       local node = vim.treesitter.get_node()
 
