@@ -68,12 +68,16 @@ return {
     "ibhagwan/fzf-lua",
     keys = {
       { "<leader>space", false },
+      { "<leader>sg", false },
+      { "<leader>sz", false },
     },
   },
   {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader>space", false },
+      { "<leader>sg", false },
+      { "<leader>sz", false },
     },
   },
   {
