@@ -1,0 +1,19 @@
+os:
+  edit: >
+    [ -z "$NVIM" ] && (nvim "+lua vim.defer_fn(function() vim.cmd([[normal! gg]]) require(\"gitsigns\").next_hunk() end, 200)" -- {{filename}}) ||
+    (nvim --server "$NVIM" --remote-send "<C-\\><C-N>:q<CR>" && nvim --server "$NVIM" --remote-send ":e {{filename}}<CR>:lua vim.defer_fn(function() vim.cmd([[normal! gg]]) require(\"gitsigns\").next_hunk() end, 200)<CR>")
+  editAtLine: >
+    [ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) ||
+    (nvim --server "$NVIM" --remote-send "<C-\\><C-N>:q<CR>" && nvim --server "$NVIM" --remote-send ":e {{filename}}<CR>:{{line}}<CR>")
+
+keybinding:
+  universal:
+    edit: o
+    openFile: <disabled>
+
+customCommands:
+  - key: "C"
+    context: "files"
+    command: "yarn git-cz"
+    description: "Commit with Commitizen"
+    output: terminal
