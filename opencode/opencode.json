@@ -1,17 +1,32 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "rosepine",
   "autoshare": false,
   "autoupdate": true,
-  "tui": {
-    "scroll_speed": 3,
-    "scroll_acceleration": {
+  "enabled_providers": [
+    "anthropic",
+    "openai",
+    "github-copilot"
+  ],
+  "mcp": {
+    "linear": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.linear.app/sse"
+      ],
       "enabled": true
     }
   },
-  "keybinds": {
-    "leader": "ctrl+a",
-    "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d"
-  },
+  "plugin": [
+    [
+      "@plannotator/opencode@latest",
+      {
+        "workflow": "manual"
+      }
+    ]
+  ],
+  "lsp": true,
+  "formatter": true
 }
