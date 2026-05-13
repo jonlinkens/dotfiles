@@ -17,3 +17,7 @@ customCommands:
     command: "yarn git-cz"
     description: "Commit with Commitizen"
     output: terminal
+
+git:
+  pagers:
+    - pager: hunk pager
