@@ -43,8 +43,5 @@ alias hd="hunk diff --watch"
 
 alias gcr='git branch --sort=-committerdate | grep -v "^\*" | fzf --height=30% --reverse --info=inline | xargs git checkout'
 
-
-bindkey '^I'      autosuggest-accept
-
 source <(fzf --zsh)
 # zprof
