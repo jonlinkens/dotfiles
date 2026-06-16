@@ -92,7 +92,7 @@ end
 local function open_fff(method, opts)
   local cwd = fff_root()
   require("fff").change_indexing_directory(cwd)
-  require("fff-snacks")[method](picker_opts(opts, nil, { cwd = cwd }))
+  require("fff-snacks")[method](picker_opts(opts, nil, { _fff_root = cwd }))
 end
 
 return {
@@ -110,15 +110,17 @@ return {
       opts.picker.actions = opts.picker.actions or {}
 
       opts.picker.actions.go_to_live_grep = function(picker)
+        local cwd = picker.opts._fff_root or fff_root()
         picker:close()
-        require("fff").change_indexing_directory(picker.opts.cwd)
-        require("fff-snacks").live_grep(picker_opts(live_grep_opts, picker.input.filter.search, { cwd = picker.opts.cwd }))
+        require("fff").change_indexing_directory(cwd)
+        require("fff-snacks").live_grep(picker_opts(live_grep_opts, picker.input.filter.search, { _fff_root = cwd }))
       end
 
       opts.picker.actions.go_to_find_files = function(picker)
+        local cwd = picker.opts._fff_root or fff_root()
         picker:close()
-        require("fff").change_indexing_directory(picker.opts.cwd)
-        require("fff-snacks").find_files(picker_opts(find_files_opts, picker.input.filter.search, { cwd = picker.opts.cwd }))
+        require("fff").change_indexing_directory(cwd)
+        require("fff-snacks").find_files(picker_opts(find_files_opts, picker.input.filter.search, { _fff_root = cwd }))
       end
     end,
   },
