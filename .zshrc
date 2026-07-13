@@ -37,8 +37,9 @@ alias tml="tmux split-window -h \; select-pane -L \; split-window -v"
 alias tma="tmux attach"
 alias lg="lazygit"
 alias vfr='vim $(find /Users/jonlinkens/dev -mindepth 1 -maxdepth 1 -type d | fzf)'
+alias td='d=$(find /Users/jonlinkens/dev -mindepth 1 -maxdepth 1 -type d | fzf) && cd "$d" && w=$(tmux display-message -p "#{window_id}") && tmux new-window -c "$d" \; split-window -h -c "$d" \; new-window -c "$d" "opencode" \; new-window -c "$d" "hunk diff" \; select-window -t "$w"'
 alias oc="opencode"
-alias hd="hunk diff --watch"
+alias hd="hunk diff"
 
 
 alias gcr='git branch --sort=-committerdate | grep -v "^\*" | fzf --height=30% --reverse --info=inline | xargs git checkout'
