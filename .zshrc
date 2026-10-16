@@ -17,6 +17,26 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
+if [[ -n $REX_SESSION ]]; then
+  autoload -Uz add-zsh-hook
+  rex_environment_status() {
+    local title
+    case $SENECA_ENV in
+      production) title=cHJvZHVjdGlvbg== ;;
+      staging) title=c3RhZ2luZw== ;;
+      dev) title=ZGV2 ;;
+      edge) title=ZWRnZQ== ;;
+      infra) title=aW5mcmE= ;;
+    esac
+    if [[ -n $title ]]; then
+      printf '\e]7501;state=idle:id=seneca-env:app=seneca:title=%s\e\\' "$title"
+    else
+      printf '\e]7501;state=clear:id=seneca-env\e\\'
+    fi
+  }
+  add-zsh-hook precmd rex_environment_status
+fi
+
 export PATH=/Users/jonlinkens/.local/bin:$PATH
 export PATH="$HOME/Library/Python/3.14/bin:$PATH"
 
@@ -35,7 +55,14 @@ alias gcr='git branch --sort=-committerdate | grep -v "^\*" | fzf --height=30% -
 alias tml="tmux split-window -h \; select-pane -L \; split-window -v"
 alias tma="tmux attach"
 
-alias td='d=$(find /Users/jonlinkens/dev -mindepth 1 -maxdepth 1 -type d | fzf) && cd "$d" && w=$(tmux display-message -p "#{window_id}") && tmux new-window -c "$d" \; split-window -h -c "$d" \; new-window -c "$d" "opencode; exec \$SHELL" \; new-window -c "$d" "hunk diff; exec \$SHELL" \; select-window -t "$w"'
+td() {
+  [[ -n $REX_SESSION ]] || { print -u2 'td requires a Rex terminal'; return 1; }
+  local dir
+  dir=$(find "$HOME/dev" -mindepth 1 -maxdepth 1 -type d | fzf) || return
+  cd -- "$dir" || return
+  rex do td_layout dir="$dir" || return
+  rex do com.superlogical.terminal.clear -b "$REX_BLOCK" >/dev/null
+}
 
 alias yys='yarn && yarn start'
 alias yyb='yarn && yarn build'

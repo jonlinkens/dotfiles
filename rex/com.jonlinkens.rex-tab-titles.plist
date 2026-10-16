@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.jonlinkens.rex-tab-titles</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Applications/Rex Beta.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex</string>
+    <string>do</string>
+    <string>/Users/jonlinkens/.config/rex/tab-titles.lua</string>
+    <string>--all</string>
+    <string>--fail-fast</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>/Users/jonlinkens/.config/rex/tab-titles.log</string>
+</dict>
+</plist>
