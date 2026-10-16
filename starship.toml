@@ -43,8 +43,38 @@ $os\
 $shell\
 $character"""
 
-
 [cmd_duration]
 min_time = 0
-format = "[$duration]($style) "
+format = "[ $duration ]($style) "
 style = "bold yellow"
+
+ [custom.dev]
+ format = "[ dev ](bg:blue fg:black)"
+ shell = "bash"
+ when = '[ "$SENECA_ENV" == "dev" ]'
+
+ [custom.edge]
+ format = "[ edge ](bg:blue fg:black)"
+ shell = "bash"
+ when = '[ "$SENECA_ENV" == "edge" ]'
+
+ [custom.staging]
+ format = "[ staging ](bg:#f6c177 fg:black)"
+ shell = "bash"
+ when = '[ "$SENECA_ENV" == "staging" ]'
+
+ [custom.production]
+ format = "[ production ](bg:red fg:black)"
+ shell = "bash"
+ when = '[ "$SENECA_ENV" == "production" ]'
+
+
+[custom.infra]
+ format = "[ infra ](bg:purple fg:black)"
+ shell = "bash"
+ when = '[ "$SENECA_ENV" == "infra" ]'
+
+ [custom.default]
+ format = "[ platform ](bg:purple fg:black)"
+ shell = "bash"
+  when = '[ -z "$SENECA_ENV" ] || ! [[ "$SENECA_ENV" =~ ^(dev|edge|staging|production|infra)$ ]]'
