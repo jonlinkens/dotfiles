@@ -63,3 +63,34 @@ Correct the user when they:
 - Have wrong assumptions about code behavior
 
 Don't validate incorrect beliefs for politeness. Truth > comfort.
+
+## tmux awareness
+
+The environment will usually be running inside a `tmux` session.
+
+Do not create, modify, reorganize, or control tmux sessions, windows, or panes unless explicitly asked by the user.
+
+You should, however, understand how to inspect and reference tmux state when requested.
+
+Examples:
+- "check pane 2"
+- "look at window 4 logs"
+- "what is running in this pane?"
+- "split a pane for me"
+- "start this in a new tmux window"
+
+Useful tmux commands:
+- List windows: `tmux list-windows`
+- List panes: `tmux list-panes -a`
+- Capture pane output: `tmux capture-pane -p -t <target>`
+- Send keys to pane: `tmux send-keys -t <target> '<command>' C-m`
+- Split pane vertically: `tmux split-window -v`
+- Split pane horizontally: `tmux split-window -h`
+- Create window: `tmux new-window -n <name>`
+
+Behavior rules:
+- Never assume a pane is safe to interrupt.
+- Prefer inspection before interaction.
+- Do not send commands to panes unless explicitly instructed.
+- Do not create new panes/windows/layouts unless explicitly instructed.
+- When referring to tmux targets, use tmux notation like `session:window.pane` when available.
