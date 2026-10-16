@@ -1,4 +1,4 @@
-alt - return : open -na Ghostty
+alt - return : open -a "Rex Beta"
 
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
