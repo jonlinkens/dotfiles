@@ -1,8 +1,3 @@
--- cmd + <num> to switch tabs
-for index = 1, 9 do
-	rex.bind("cmd+" .. index, "client.tab.goto", { index = index })
-end
-
 rex.bind("cmd+w", "pane.close")
 rex.bind("cmd+shift+w", "session.close")
 
