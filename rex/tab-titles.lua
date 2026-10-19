@@ -62,7 +62,7 @@ local function update_window(session_id, window)
 
 	local folder = cwd and cwd:match("([^/]+)/?$")
 	local program = process and process.foreground and process.foreground.name
-	local label = folder and program and (folder .. " • " .. program)
+	local label = folder and program and (program == "zsh" and folder or (folder .. " • " .. program))
 	if label then
 		local status = rex.block.call(terminal, "program_status", {
 			session_id = session_id,

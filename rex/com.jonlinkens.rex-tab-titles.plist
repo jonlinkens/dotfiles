@@ -6,7 +6,7 @@
   <string>com.jonlinkens.rex-tab-titles</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Applications/Rex Beta.app/Contents/Helpers/Rex Server.app/Contents/MacOS/rex</string>
+    <string>/Users/jonlinkens/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS/rex</string>
     <string>do</string>
     <string>/Users/jonlinkens/.config/rex/tab-titles.lua</string>
     <string>--all</string>
