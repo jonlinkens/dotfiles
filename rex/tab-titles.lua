@@ -7,35 +7,12 @@ local environment_dots = {
 	infra = "🟣",
 }
 
-local function session_letter(index)
-	local letters = ""
-	while index > 0 do
-		index = index - 1
-		letters = string.char(97 + index % 26) .. letters
-		index = math.floor(index / 26)
-	end
-	return letters
-end
-
-local function rename_sessions()
+local function attach_sessions()
 	local sessions = rex.call("session.list").sessions
-	table.sort(sessions, function(a, b)
-		return a.session_id < b.session_id
-	end)
-	for index, session in ipairs(sessions) do
+	for _, session in ipairs(sessions) do
 		local _, attach_error = rex.session.attach({ session_id = session.session_id })
 		if attach_error then
 			error(attach_error)
-		end
-		local label = session_letter(index)
-		if session.label ~= label then
-			local _, rename_error = rex.session.set_label({
-				session_id = session.session_id,
-				label = label,
-			})
-			if rename_error then
-				error(rename_error)
-			end
 		end
 	end
 	return sessions
@@ -118,16 +95,10 @@ rex.on("terminal.program_status_removed", function(ctx, ev)
 	end
 end)
 rex.on("session_created", function(_, ev)
-	rename_sessions()
+	attach_sessions()
 	update_session(ev.session.session_id)
 end)
-rex.on("session_destroyed", function()
-	rename_sessions()
-end)
-rex.on("session_label_changed", function()
-	rename_sessions()
-end)
 
-for _, session in ipairs(rename_sessions()) do
+for _, session in ipairs(attach_sessions()) do
 	update_session(session.session_id)
 end
