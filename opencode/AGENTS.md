@@ -94,3 +94,7 @@ Behavior rules:
 - Do not send commands to panes unless explicitly instructed.
 - Do not create new panes/windows/layouts unless explicitly instructed.
 - When referring to tmux targets, use tmux notation like `session:window.pane` when available.
+
+## Rex
+
+If `REX_SESSION` is set, name the session on the first request that identifies the work: `rex session rename "$REX_SESSION" <label>`. Use 2-4 lowercase hyphenated words for the task (e.g. `fix-login-redirect`). Keep an existing label that already fits.
